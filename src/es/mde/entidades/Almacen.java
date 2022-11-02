@@ -1,6 +1,8 @@
 package es.mde.entidades;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class Almacen {
@@ -43,6 +45,19 @@ public class Almacen {
 
 	public boolean isRepuesto(Repuesto repuesto) {
 		return isRepuesto(repuesto, 1);
+	}
+
+	public void almacenarRespuesto(Repuesto repuesto) {
+		getRepuestos().add(repuesto);
+		System.out.println("Se ha almacenado " + repuesto.getNombre() + " S/N");
+	}
+
+	public void almacenarRespuesto(Repuesto... repuesto) {
+		Arrays.stream(repuesto).forEach(r -> almacenarRespuesto(r));
+	}
+
+	public void almacenarRespuesto(Collection<Repuesto> colecionRepuestos) {
+		colecionRepuestos.forEach(r -> almacenarRespuesto(r));
 	}
 
 }
