@@ -33,6 +33,11 @@ public class Coche extends VehiculoConRuedas {
 	}
 
 	@Override
+	public void arrancar() {
+		System.out.println(getMatricula() + "estoy arrancando");
+	}
+
+	@Override
 	public String toString() {
 		return "Placa " + matricula + " - " + super.toString();
 	}

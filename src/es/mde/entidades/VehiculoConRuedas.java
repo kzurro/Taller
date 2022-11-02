@@ -1,6 +1,6 @@
 package es.mde.entidades;
 
-public abstract class VehiculoConRuedas extends Vehiculo {
+public abstract class VehiculoConRuedas extends Vehiculo implements Arrancable {
 
 	public abstract int getNumeroDeRuedas();
 
