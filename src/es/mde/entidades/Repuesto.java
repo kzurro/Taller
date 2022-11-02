@@ -1,5 +1,7 @@
 package es.mde.entidades;
 
+import java.util.Objects;
+
 public class Repuesto {
 	private int id;
 	private float precio;
@@ -33,6 +35,18 @@ public class Repuesto {
 		setId(id);
 		setNombre(nombre);
 		setPrecio(precio);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Repuesto other = (Repuesto) obj;
+		return Objects.equals(getNombre(), other.getNombre()) && Objects.equals(getPrecio(), other.getPrecio());
 	}
 
 	@Override

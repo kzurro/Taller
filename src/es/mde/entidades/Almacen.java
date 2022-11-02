@@ -29,4 +29,20 @@ public class Almacen {
 		setRepuestos(repuestos);
 	}
 
+	public boolean isRepuesto(Repuesto repuesto, int cantidad) {
+		int contadorRepuestos = 0;
+
+		for (Repuesto repuestoAlmacen : getRepuestos()) {
+			if (repuestoAlmacen.equals(repuesto)) {
+				contadorRepuestos++;
+			}
+		}
+
+		return contadorRepuestos >= cantidad;
+	}
+
+	public boolean isRepuesto(Repuesto repuesto) {
+		return isRepuesto(repuesto, 1);
+	}
+
 }
