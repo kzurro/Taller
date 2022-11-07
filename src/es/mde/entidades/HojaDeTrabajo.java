@@ -7,15 +7,15 @@ import java.util.Collection;
 public class HojaDeTrabajo {
 
 	private Reparable vehiculoAReparar;
-	private Collection<Averia> averiasReparacion;
+	private Collection<Averia> averiasArregladas;
 	private LocalDate fechaEntrada;
 
 	public Reparable getVehiculoAReparar() {
 		return vehiculoAReparar;
 	}
 
-	public Collection<Averia> getAveriasReparacion() {
-		return averiasReparacion;
+	public Collection<Averia> getAveriasArregladas() {
+		return averiasArregladas;
 	}
 
 	public LocalDate getFechaEntrada() {
@@ -27,11 +27,11 @@ public class HojaDeTrabajo {
 	}
 
 	protected void setAveriasReparacion(Collection<Averia> averiasReparar) {
-		if (getAveriasReparacion() == null) {
-			this.averiasReparacion = new ArrayList<Averia>();
-			this.averiasReparacion.addAll(averiasReparar);
+		if (getAveriasArregladas() == null) {
+			this.averiasArregladas = new ArrayList<Averia>();
+			this.averiasArregladas.addAll(averiasReparar);
 		} else {
-			getAveriasReparacion().addAll(averiasReparar);
+			getAveriasArregladas().addAll(averiasReparar);
 		}
 	}
 
@@ -48,5 +48,13 @@ public class HojaDeTrabajo {
 	public HojaDeTrabajo(Reparable vehiculo) {
 		this(vehiculo, LocalDate.now());
 	}
-
+	
+	public void addReparacionFinalizada(Averia averia) {
+		if(getVehiculoAReparar().getAverias().contains(averia)) {
+			getVehiculoAReparar().getAverias().remove(averia);
+			getAveriasArregladas().add(averia);
+		} else {
+			System.err.println("Se intenta añadir una reparación sin haber avería");
+		}
+	}
 }
