@@ -6,11 +6,11 @@ import java.util.Collection;
 
 public class HojaDeTrabajo {
 
-	private VehiculoConRuedas vehiculoAReparar;
+	private Reparable vehiculoAReparar;
 	private Collection<Averia> averiasReparacion;
 	private LocalDate fechaEntrada;
 
-	public VehiculoConRuedas getVehiculoAReparar() {
+	public Reparable getVehiculoAReparar() {
 		return vehiculoAReparar;
 	}
 
@@ -22,7 +22,7 @@ public class HojaDeTrabajo {
 		return fechaEntrada;
 	}
 
-	protected void setVehiculoAReparar(VehiculoConRuedas vehiculoAReparar) {
+	protected void setVehiculoAReparar(Reparable vehiculoAReparar) {
 		this.vehiculoAReparar = vehiculoAReparar;
 	}
 
@@ -39,13 +39,13 @@ public class HojaDeTrabajo {
 		this.fechaEntrada = fechaEntrada;
 	}
 
-	public HojaDeTrabajo(VehiculoConRuedas vehiculo, LocalDate fechaEntrada) {
+	public HojaDeTrabajo(Reparable vehiculo, LocalDate fechaEntrada) {
 		setVehiculoAReparar(vehiculo);
 		setAveriasReparacion(new ArrayList<Averia>());
 		setFechaEntrada(fechaEntrada);
 	}
 
-	public HojaDeTrabajo(VehiculoConRuedas vehiculo) {
+	public HojaDeTrabajo(Reparable vehiculo) {
 		this(vehiculo, LocalDate.now());
 	}
 
