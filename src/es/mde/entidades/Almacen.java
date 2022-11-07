@@ -1,5 +1,6 @@
 package es.mde.entidades;
 
+import java.awt.image.RescaleOp;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -48,7 +49,7 @@ public class Almacen {
 	}
 
 	public void almacenarRespuesto(Repuesto repuesto) {
-		getRepuestos().add(repuesto);
+		getRepuestos().add(asignarId(repuesto));
 		System.out.println("Se ha almacenado " + repuesto.getNombre() + " S/N");
 	}
 
@@ -58,6 +59,19 @@ public class Almacen {
 
 	public void almacenarRespuesto(Collection<Repuesto> colecionRepuestos) {
 		colecionRepuestos.forEach(r -> almacenarRespuesto(r));
+	}
+
+	public Repuesto asignarId(Repuesto repuesto) {
+		Repuesto repuesto2 = null;
+		if (getRepuestos().contains(repuesto)) {
+			repuesto2 = new Repuesto(repuesto.getNombre(), repuesto.getPrecio());
+			repuesto2.setId(getRepuestos().size());
+		} else {
+			repuesto.setId(getRepuestos().size());
+			repuesto2 = repuesto;
+		}
+
+		return repuesto2;
 	}
 
 }

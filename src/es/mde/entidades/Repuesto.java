@@ -30,6 +30,11 @@ public class Repuesto {
 	protected void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public Repuesto( String nombre, float precio) {
+		//pongo -1 al id porque el 0 puede ser un id existente en nuestro Almacen
+		this(-1, nombre, precio);
+	}
 
 	public Repuesto(int id, String nombre, float precio) {
 		setId(id);
@@ -51,7 +56,7 @@ public class Repuesto {
 
 	@Override
 	public String toString() {
-		return "(#" + getId() + ") " + getNombre() + " | " + getPrecio() + "â‚¬";
+		return "(#" + getId() + ") " + getNombre() + " | " + getPrecio() + "€";
 	}
 
 }
