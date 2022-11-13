@@ -1,8 +1,11 @@
 package es.mde.entidades;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import es.mde.constantes.ConstantesTaller;
 
@@ -93,6 +96,28 @@ public class Taller {
 			}
 		}
 		return hojasDelReparable;
+	}
+
+	public List<HojaDeTrabajo> getHojasHastaHaceUnAno(Reparable reparable) {
+		LocalDate haceUnAno = LocalDate.now().minusYears(1);
+
+		return getHojasDeTrabajoParaReparable(reparable).stream().filter(h -> h.getFechaEntrada().isAfter(haceUnAno))
+				.collect(Collectors.toList());
+	}
+
+	public Collection<Averia> getAveriasGarantizadas(Reparable reparable) {
+		Collection<Averia> averiasGarantizadas = new ArrayList<>();
+		for (HojaDeTrabajo hoja : getHojasHastaHaceUnAno(reparable)) {
+			for (Averia averia : hoja.getAveriasArregladas()) {
+				averiasGarantizadas.add(averia);
+			}
+		}
+
+		return averiasGarantizadas;
+	}
+	
+	public boolean isGarantia(Reparable reparable) {
+		return getAveriasGarantizadas(reparable).contains(reparable.getAverias());
 	}
 
 }
