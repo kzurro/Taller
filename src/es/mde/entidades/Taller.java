@@ -73,4 +73,15 @@ public class Taller {
 
 	}
 
+	public float getPresupuesto(HojaDeTrabajo hojaDeTrabajo) {
+		float presupuesto = 0f;
+
+		for (Averia averia : hojaDeTrabajo.getVehiculoAReparar().getAverias()) {
+			presupuesto += averia.getPrecio();
+
+		}
+
+		return presupuesto;
+	}
+
 }
