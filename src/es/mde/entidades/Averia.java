@@ -70,6 +70,37 @@ public class Averia {
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((repuestosNecesarios == null) ? 0 : repuestosNecesarios.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Averia other = (Averia) obj;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (repuestosNecesarios == null) {
+			if (other.repuestosNecesarios != null)
+				return false;
+		} else if (!repuestosNecesarios.equals(other.repuestosNecesarios))
+			return false;
+		return true;
+	}
+
+	@Override
 	public String toString() {
 		return "Averia: " + getNombre() + " (" + getPrecio() + "€ " + getNumeroHorasManoObra()
 				+ "h) repuestos necesarios: " + getRepuestosNecesarios();

@@ -1,7 +1,6 @@
 package es.mde.entidades;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import es.mde.constantes.ConstantesTaller;
@@ -61,6 +60,15 @@ public class Taller {
 			}
 			System.out.println("El " + reparable.getClass().getSimpleName() + " ya está diagnosticado, su averia es: "
 					+ averiaString);
+		}
+
+	}
+
+	public void diagnosticar(Reparable reparable, Averia averia) {
+		if (reparable.getAverias().contains(averia)) {
+			System.out.println(averia.getNombre() + " ya es una averia de " + reparable.getClass().getSimpleName());
+		} else {
+			reparable.addAveria(averia);
 		}
 
 	}
