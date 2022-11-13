@@ -1,7 +1,10 @@
 package es.mde.entidades;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import es.mde.constantes.ConstantesTaller;
 
 public class Taller {
 
@@ -45,6 +48,21 @@ public class Taller {
 	}
 
 	public Taller() {
+	}
+
+	public void diagnosticar(Reparable reparable) {
+		if (reparable.getAverias().isEmpty()) {
+			int numAleatorio = (int) Math.floor(Math.random() * (ConstantesTaller.getAverias().length));
+			reparable.addAveria(ConstantesTaller.getAverias()[numAleatorio]);
+		} else {
+			String averiaString = "";
+			for (Averia a : reparable.getAverias()) {
+				averiaString += a.getNombre() + ", ";
+			}
+			System.out.println("El " + reparable.getClass().getSimpleName() + " ya está diagnosticado, su averia es: "
+					+ averiaString);
+		}
+
 	}
 
 }
