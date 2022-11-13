@@ -102,7 +102,7 @@ public class Averia {
 
 	@Override
 	public String toString() {
-		return "Averia: " + getNombre() + " (" + getPrecio() + "â‚¬ " + getNumeroHorasManoObra()
+		return "Averia: " + getNombre() + " (" + getPrecio() + "€, " + getNumeroHorasManoObra()
 				+ "h) repuestos necesarios: " + getRepuestosNecesarios();
 	}
 
