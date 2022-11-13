@@ -18,11 +18,12 @@ public class CocheReparable extends Coche implements Reparable {
 
 	public CocheReparable(String modelo, String color) {
 		super(modelo, color);
-		averias = new ArrayList<Averia>();
+		setAverias(new ArrayList<>());
 	}
 
 	public CocheReparable(String modelo, String color, int numeroDeRuedas, String matricula) {
 		super(modelo, color, numeroDeRuedas, matricula);
+		setAverias(new ArrayList<>());
 
 	}
 
