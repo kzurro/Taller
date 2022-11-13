@@ -1,6 +1,7 @@
 package es.mde.entidades;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import es.mde.constantes.ConstantesTaller;
@@ -82,6 +83,16 @@ public class Taller {
 		}
 
 		return presupuesto;
+	}
+
+	public Collection<HojaDeTrabajo> getHojasDeTrabajoParaReparable(Reparable reparable) {
+		Collection<HojaDeTrabajo> hojasDelReparable = new ArrayList<HojaDeTrabajo>();
+		for (HojaDeTrabajo hojaDeTrabajo : getHojasDeTrabajo()) {
+			if (hojaDeTrabajo.getVehiculoAReparar().equals(reparable)) {
+				hojasDelReparable.add(hojaDeTrabajo);
+			}
+		}
+		return hojasDelReparable;
 	}
 
 }
