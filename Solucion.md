@@ -1,3 +1,7 @@
+# SOLUCIÓN 
+_Esto son los pasos seguidos para una de la múltiples soluciones que se pueden dar a este ejercicio_
+
+
 1. Creamos `Vehículo` de la que heredarán las demás clases que en un futuro reparará  nuestro `Taller`.  
 1. Los vehículos pueden tener ruedas o no, por lo que creamos la `Clase Abstracta VehiculoConRuedas `(se querrá crear especialidades de `VehiculoConRuedas` no instancias suyas)
 1. Creamos las Clases `Moto` y `Coche` con herencia de `VehiculoConRuedas`. commit [aquí](http://github.com/kzurro/Taller/commit/dd8e198353f1d54ec9a9551c40be8ccd68b2d6c3)
