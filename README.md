@@ -19,3 +19,6 @@ Se pide crear e implementar una Clase Taller que admita distintos tipos de vehí
 
 
 ## [Posible Solución](./Solucion.md)
+
+## Integración con codigo externo
+Se ha añadido una libreria externa `electrodomesticos.jar` (_modificar la extensión a electrodomesticos.jar e integrar en el proyecto `Taller` como una libreria_). para que nuestro taller también pueda reparar Electrodomésticos
