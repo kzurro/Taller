@@ -30,4 +30,11 @@ public class Vehiculo {
 		setColor(color);
 	}
 
+	@Override
+	public String toString() {
+		return getModelo() +  " " + getColor() + " ";
+	}
+	
+	
+
 }
